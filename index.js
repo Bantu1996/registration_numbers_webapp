@@ -86,7 +86,10 @@ app.get('/addFlash',  async function (req, res) {
     });
 
 
-
+app.get("/reset", async function(req, res){
+    await register.reset(),
+    res.redirect('/')
+})
 
 const PORT = process.env.PORT || 2021;
 app.listen(PORT, function () {

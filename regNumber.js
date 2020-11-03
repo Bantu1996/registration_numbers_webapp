@@ -62,12 +62,19 @@ module.exports = function Registering(pool) {
         // }
     }
 
+    async function reset() {
+        var reseting = await pool.query('DELETE FROM registration_num')
+        return reseting
+    }
+
+
     return {
         // checkingReg,
         regis,
         addReg,
         gettingReg,
-        filter
+        filter,
+        reset
     }
 }
 
