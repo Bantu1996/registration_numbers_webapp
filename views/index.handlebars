@@ -1,0 +1,53 @@
+<div class="row">
+    <h1>Registration numbers</h1>
+
+    <div class="notification">
+
+    </div>
+    {{#if info.error}}
+    <div class="entry">
+        <h1> {{info.error}}</h1>
+    </div>
+    {{/if}}
+
+    <form action="/registering" method="POST">
+
+        <div>
+            <input type="text" class="texting" name="texting" value="" placeholder="enter a registration number">
+            <button type="submit" class="regButton">Add reg number</button>
+        </div>
+    </form>
+    <form action="/filter" method="POST">
+        <strong>Filter:</strong>
+        <input class="towns" name="placesFilter" type="radio" value="">All
+        <input class="towns" name="placesFilter" type="radio" value="CY">Bellville
+        <input class="towns" name="placesFilter" type="radio" value="CJ">Paarl
+        <input class="towns" name="placesFilter" type="radio" value="CA">Cape Town
+        <button type="submit" class="filBtn">Filter</button>
+    </form>
+
+
+    <br>
+    <hr>
+
+    <div class="bones">
+        <h2>Show &#9662;</h2>
+    </div>
+
+    {{#each reg}}
+    <div class="regNumbersList">
+        <li>
+            <ul >
+       {{this.reg_num}}
+    </ul>
+        </li>
+ 
+
+
+    </div>
+   
+
+    {{/each}}
+
+</div>
+</div>
