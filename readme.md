@@ -1,0 +1,1 @@
+[![Build Status](https://travis-ci.com/Bantu1996/registration_numbers_webapp.svg?branch=master)](https://travis-ci.com/Bantu1996/registration_numbers_webapp)
