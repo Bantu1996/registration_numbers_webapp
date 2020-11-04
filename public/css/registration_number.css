@@ -2,17 +2,43 @@
 body {
 	font-family: 'Times New Roman', Times, serif;
 	font-size: 1em;
+	background: linear-gradient(
+		to bottom,
+		#5d9634,
+		#5d9634 50%,
+		#538c2b 50%,
+		#538c2b
+	  );
+	  /* display: flex; */
+
 }
 
 
 .container {
-	width: 90%;
-    margin:	20px;
-    
+	width: 70%;
+	margin:	auto;
+	text-align: center;
+	/* background-color: white; */
+	/* opacity: 0.; */
+	border-radius: 15px;
+	padding: 10px;
+	display: flex;
+	  
 	
 }
-
+.row{
+	width: 90%;
+	margin:	auto;
+	padding: 10px;
+	/* padding-bottom: 10em; */
+	text-align: center;
+	background-color: white;
+	/* opacity: 0.9; */
+	/* display: flex; */
+	border-radius: 15px;
+}
 .bones{
+	float: right;
 	display: flex;
     margin: 2em;
 }
@@ -28,17 +54,86 @@ body {
 	font-size: 1em;
 }
 
-.regButton {
-	margin: 1em;
-	padding: 1em;
-	font-size: 1em;
-	border-radius: 0.25em;
+  .regButton { 
+  display: inline-block;
+  padding: 10px 15px;
+  font-size: 10px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+  opacity:1;
 }
 
+.regButton:hover {background-color: #3e8e41}
+
+.regButton:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+
+}
+.filBtn { 
+	display: inline-block;
+	padding: 10px 15px;
+	font-size: 10px;
+	cursor: pointer;
+	text-align: center;
+	text-decoration: none;
+	outline: none;
+	color: #fff;
+	background-color: #4CAF50;
+	border: none;
+	border-radius: 15px;
+	box-shadow: 0 9px #999;
+	opacity:1;
+  }
+  
+  .filBtn:hover {background-color: #3e8e41}
+  
+  .filBtn:active {
+	background-color: #3e8e41;
+	box-shadow: 0 5px #666;
+	transform: translateY(4px);
+}
+.resetBtn { 
+	display: inline-block;
+	padding: 10px 15px;
+	font-size: 10px;
+	cursor: pointer;
+	text-align: center;
+	text-decoration: none;
+	outline: none;
+	color: #fff;
+	background-color: darkgreen;
+	border: none;
+	border-radius: 15px;
+	box-shadow: 0 9px #999;
+	opacity:1;
+  }
+  
+  .resetBtn:hover {background-color: #3e8e41}
+  
+  .resetBtn:active {
+	background-color: #3e8e41;
+	box-shadow: 0 5px #666;
+	transform: translateY(4px);
+}
 .grey {
 	background-color: grey;
 }
-
+.texting{
+	margin: 1em;
+	padding: 1em;
+	font-size: 15px;
+	border-radius: 15px;
+	border-color: green;
+}
 .notification {
 	height: 1em;
 	font-weight: bold;
@@ -50,21 +145,61 @@ body {
 	background-color: silver;
 	border: 0.1em solid;
 	border-radius: 0.25em;
-	padding: 1em;
+	/* padding: 1em;
 	margin: 0.5em;
 	width: 7em;
-	text-align: center;
+	text-align: center; */
 	font-weight: bold;
-	float: left;
+	/* float: left; */
+	display: inline-block;
+	padding-bottom: 1em;
 
 }
 
 input[type='radio'] {
-    margin: 1em;
+	margin: 1em;
+	opacity: 1;
     
 }
-
-
+.entry{
+	width: 30%;
+	margin: auto;
+	/* padding: 10px; */
+	text-align: center;
+	font-style: italic;
+	font-size: 8px;
+	 /* background-size: 1em; */
+	background-position: center;
+	background-color: lightgray;
+	color:red;
+	border-radius: 15px;
+}
+.sis{
+	width: 30%;
+	margin: auto;
+	/* padding: 10px; */
+	text-align: center;
+	font-style: italic;
+	font-size: 8px;
+	 /* background-size: 1em; */
+	background-position: center;
+	background-color:lightgray;
+	color:red;
+	border-radius: 15px;
+}
+.rstMessage{
+	width: 35%;
+	margin: auto;
+	/* padding: 10px; */
+	text-align: center;
+	font-style: italic;
+	font-size: 8px;
+	 /* background-size: 1em; */
+	background-position: center;
+	background-color:lightgray;
+	color:green;
+	border-radius: 15px;
+}
 .vl {
     border-left: 6px solid green;
     height: 300px;
@@ -80,9 +215,16 @@ li{
 	border: 0.1em solid;
 	border-radius: 0.25em;
 	padding: 1em;
+	padding-bottom: 1em;
 	margin: 0.5em;
 	width: 7em;
-	text-align: center;
+	/* text-align: center; */
 	font-weight: bold;
-	float:down;
+	/* display: inline-block; */
+	float: left;
+	opacity: 1;
+}
+hr{
+	border-style: solid;
+	border-color: green;
 }

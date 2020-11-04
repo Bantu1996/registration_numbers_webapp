@@ -1,170 +1,80 @@
 module.exports = function Registering(pool) {
     plates = [];
 
-    // async function checkingReg(name) {
-
-    //     // var using = texting.charAt(0).toUpperCase() + texting.slice(1).toLowerCase()
-    //     var check = await pool.query('SELECT * FROM registration_num WHERE reg_num = $1 ', [name]);
-    //     return check.rows;
-    // }
-
-
     async function addReg(name) {
-
-        var startsWith = name.substring(0, 2).toUpperCase()
-        // var regPlate = checkingReg(name)
-
-        let reg;
-
-        var platesQuery = await pool.query("select id from registration_town where starts_with=$1", [startsWith])
-
-        let loc_id = platesQuery.rows[0].id
-
-        if (loc_id > 0) {
-          
-         reg =  await pool.query('select reg_num from registration_num where reg_num=$1', [name])
+       var name = name.toUpperCase()
+        var names = /C[AYJ]\s\d{3}-\d{3}|C[AYJ]\s\d{3}/gi
+        var results = names.test(name)
+        // var startsWith = name.substring(0, 2)
+        console.log(results);
         
-         if(reg.rowCount < 1){
-            await pool.query("insert into registration_num(reg_num, category_id) values($1, $2)", [name, loc_id])
+        let reg;
+       if(results === false){
+           
+           return "Please enter a valid reg";
+       }
+     else{
+        var loc_id = await regId(name)
+        // if (loc_id ) {
+            
+        // }
+           if (loc_id > 0) {
+               reg = await pool.query('select reg_num from registration_num where reg_num=$1', [name])
+               
+               if (reg.rowCount == 0) {
+                  await pool.query("insert into registration_num(reg_num, category_id) values($1, $2)", [name, loc_id])
+                  return "You have entered a valid reg"
+               }else{
+                return "You have entered an existing reg"
+               }
+              
+           }
+       }
+     
+}
+async function regId(name){
+    var startsWith = name.substring(0, 2)
 
-         }
-
-        }
-    }
-
-    async function regis(texting) {
-        var startsWith = texting.subString(0, 2).toUpperCase()
-
-        var check = addReg(texting);
+    var platesQuery = await pool.query("select id from registration_town where starts_with=$1", [startsWith])
+   
     
-        var query = await pool.query(`INSERT INTO registration_town(town_name, starts_with) VALUES ($1, $2)`, [check, startsWith]);
-        return query
+       let loc_id = platesQuery.rows[0].id;
+       return loc_id;
     }
-
-    // async function addingReg(texting, name) {
-
-    //     var query = await pool.query(`INSERT INTO registration_num(reg_num) VALUES ($1, $2)`, [texting, name]);
-    //     return query
-    // }
 
     async function gettingReg() {
         var list = await pool.query('SELECT reg_num FROM registration_num')
         return list.rows;
     }
 
-    function filter(texting, value) {
-        // const filteredList = [];
-        // for (var i = 0; i < texting.length; i++) {
-        //     const currentList = texting[i].toUpperCase();
-        //     if (currentList.indexOf(value) !== -1) {
-        //         filteredList.push(currentList)
-        //     }
-        // }
+    async function showFilter(filter) {
+        if (filter === "All") {
+            const all = await pool.query('select reg_num from registration_num');
+            return all.rows;
+        } else {
+            const platenumbers = filter.substring(0, 2).trim();
+            console.log(platenumbers);
+            
+            const loc_id = await pool.query('select id from registration_town where starts_with = $1', [platenumbers]);
+            const id = loc_id.rows[0].id
+            console.log(id);
+            
+            const filtering = await pool.query('select reg_num from registration_num where category_id = $1', [id]);
+            console.log(filtering);
+            
+            return filtering.rows
+        }
     }
 
     async function reset() {
         var reseting = await pool.query('DELETE FROM registration_num')
         return reseting
     }
-
-
     return {
-        // checkingReg,
-        regis,
         addReg,
+        regId,
         gettingReg,
-        filter,
+        showFilter,
         reset
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// //   async function checkingReg(name) {
-
-//         // var using = texting.charAt(0).toUpperCase() + texting.slice(1).toLowerCase()
-//         var check = await pool.query('SELECT * FROM registration_num WHERE reg_num = $1 ', [name]);
-//         return check.rows;
-//     }
-
-
-//     async function addReg(name) {
-
-//         var startsWith = name.subString(0, 2).toUpperCase()
-
-    
-//         var regPlate = checkingReg(name)
-
-//         let reg;
-
-//         if (regPlate.rowCount < 0) {
-
-//            var platesQuery = await pool.query("select id from registration_town where starts_with=id", [startsWith])
-//             var loc_id = platesQuery.rows[0].id 
-
-//             await pool.query("insert into registration_num(reg_num, category_id) values($1, $2)", [name, loc_id])
-//         }
-//     }
-
-//     async function regis(texting) {
-//         var startsWith = texting.subString(0, 2).toUpperCase()
-
-//         var check = addReg(texting);
-    
-//         var query = await pool.query(`INSERT INTO registration_town(town_name, starts_with) VALUES ($1, $2)`, [check, startsWith]);
-//         return query
-//     }
-
-//     // async function addingReg(texting, name) {
-
-//     //     var query = await pool.query(`INSERT INTO registration_num(reg_num) VALUES ($1, $2)`, [texting, name]);
-//     //     return query
-//     // }
-
-//     async function gettingReg() {
-//         var list = await pool.query('SELECT reg_num FROM registration_num')
-//         return list.rows;
-//     }
-
-//     function filter(texting, value) {
-//         // const filteredList = [];
-//         // for (var i = 0; i < texting.length; i++) {
-//         //     const currentList = texting[i].toUpperCase();
-//         //     if (currentList.indexOf(value) !== -1) {
-//         //         filteredList.push(currentList)
-//         //     }
-//         // }
-//     }
-
-//     return {
-//         checkingReg,
-//         regis,
-//         addingReg,
-//         gettingReg,
-//         filter
-//     }
-// }
