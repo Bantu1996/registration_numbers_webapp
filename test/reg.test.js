@@ -4,7 +4,7 @@ const pg = require("pg");
 const Pool = pg.Pool;
 
 // we are using a special test database for the tests
-const connectionString = process.env.DATABASE_URL || 'postgresql://bantu:s0ty@t0b@n2@localhost:5432/registration';
+const connectionString = process.env.DATABASE_URL || 'postgresql://bantu:s0ty@t0b@n2@localhost:5432/registration_test';
 
 const pool = new Pool({
   connectionString
