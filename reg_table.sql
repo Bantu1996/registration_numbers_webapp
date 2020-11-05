@@ -11,6 +11,6 @@ create table registration_num (
 	foreign key (category_id) references registration_town(id)
 );
 
-INSERT INTO registration_town(town_name, starts_with) VALUES('Cape Town', 'CA'),
-INSERT INTO registration_town(town_name, starts_with) VALUES('Bellville', 'CY'),
+INSERT INTO registration_town(town_name, starts_with) VALUES('Cape Town', 'CA')
+INSERT INTO registration_town(town_name, starts_with) VALUES('Bellville', 'CY')
 INSERT INTO registration_town(town_name, starts_with) VALUES('Paarl', 'CJ')
