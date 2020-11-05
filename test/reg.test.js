@@ -65,8 +65,38 @@ describe('Registration', function () {
 
   });
 
+  it("should be able to FILTER all reg from Cape Town.", async function () {
 
+    var registing = Registering(pool);
+    await registing.regId("CA 1234")
+    await registing.regId("CA 7654")
+    await registing.regId("CA 8765")
+    const regTown = await registing.showFilter("CA", 'Cape Town')
+    assert.deepEqual([], regTown);
 
+  });
+
+  it("should be able to FILTER all reg from Bellville.", async function () {
+
+    var registing = Registering(pool);
+    await registing.regId("CY 1234")
+    await registing.regId("CY 7654")
+    await registing.regId("CY 8765")
+    const regTown = await registing.showFilter("CY", 'Bellville')
+    assert.deepEqual([], regTown);
+
+  });
+
+  it("should be able to FILTER all reg from Paarl.", async function () {
+
+    var registing = Registering(pool);
+    await registing.regId("CJ 1234")
+    await registing.regId("CJ 7654")
+    await registing.regId("CJ 8765")
+    const regTown = await registing.showFilter("CJ", 'Paarl')
+    assert.deepEqual([], regTown);
+
+  });
 
   after(function () {
     pool.end();

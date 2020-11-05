@@ -23,7 +23,7 @@ module.exports = function Registering(pool) {
                
                if (reg.rowCount == 0) {
                   await pool.query("insert into registration_num(reg_num, category_id) values($1, $2)", [name, loc_id])
-                  return "You have entered a valid reg"
+                //   return "You have successfully entered a valid reg"
                }else{
                 return "You have entered an existing reg"
                }

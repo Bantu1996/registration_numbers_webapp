@@ -162,7 +162,7 @@ input[type='radio'] {
     
 }
 .entry{
-	width: 30%;
+	width: 35%;
 	margin: auto;
 	/* padding: 10px; */
 	text-align: center;
@@ -174,19 +174,7 @@ input[type='radio'] {
 	color:red;
 	border-radius: 15px;
 }
-.sis{
-	width: 30%;
-	margin: auto;
-	/* padding: 10px; */
-	text-align: center;
-	font-style: italic;
-	font-size: 8px;
-	 /* background-size: 1em; */
-	background-position: center;
-	background-color:lightgray;
-	color:red;
-	border-radius: 15px;
-}
+
 .rstMessage{
 	width: 35%;
 	margin: auto;

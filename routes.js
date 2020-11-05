@@ -28,17 +28,17 @@ module.exports = function routes(register){
             req.flash('error', 'Please select town')
     
         } else {
-         var y =   await register.showFilter(town)
+         var regies =   await register.showFilter(town)
         }
     
         res.render("index", {
-            reg: y
+            reg: regies
             
         })
     }
     const regReset =  async function (req, res) {
         await register.reset(),
-            req.flash('info', 'Successfully cleared the registration list')
+            req.flash('success', 'Successfully cleared the registration list')
         res.redirect('/')
     }
     return {
