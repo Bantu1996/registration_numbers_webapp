@@ -11,12 +11,14 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "12": "^1.0.2",
     "express": "^4.17.1",
     "express-flash": "0.0.2",
     "express-handlebars": "^5.1.0",
     "express-session": "^1.17.1",
     "glob": "^7.1.6",
     "node": "^14.14.0",
+    "nodejs": "0.0.0",
     "pg": "^8.4.1"
   },
   "devDependencies": {
