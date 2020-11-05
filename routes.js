@@ -13,8 +13,14 @@ module.exports = function routes(register){
       
         else {
           var regError =  await register.addReg(text)
+
+          if (regError === true) {
+            req.flash('success', "You have successfully entered a valid reg")
+          } else {
+            req.flash('error', regError)
+
+          }
              console.log(regError)
-             req.flash('error', regError)
             res.render('index', {
                 reg: await register.gettingReg(),
                 // regError
