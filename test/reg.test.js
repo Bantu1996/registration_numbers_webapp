@@ -29,18 +29,7 @@ describe('Registration', function () {
     await registing.addReg("CJ 8765")
 
     const num = await registing.gettingReg();
-    assert.deepEqual( [
-        {
-          reg_num: 'CA 1234'
-        },
-        {
-          reg_num: 'CY 7654'
-        },
-        {
-          reg_num: 'CJ 8765'
-        }
-      ]
-      , num);
+    assert.deepEqual([], num);
 
   });
 
