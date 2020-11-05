@@ -38,7 +38,7 @@ async function regId(name){
     var platesQuery = await pool.query("select id from registration_town where starts_with=$1", [startsWith])
    
     
-       let loc_id = platesQuery.rows[0];
+       let loc_id = platesQuery.rows[0].id;
        return loc_id;
     }
 
