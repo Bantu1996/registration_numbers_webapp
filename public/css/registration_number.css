@@ -23,6 +23,7 @@ body {
 	border-radius: 15px;
 	padding: 10px;
 	display: flex;
+
 	  
 	
 }
@@ -36,6 +37,7 @@ body {
 	/* opacity: 0.9; */
 	/* display: flex; */
 	border-radius: 15px;
+	
 }
 .bones{
 	float: right;
