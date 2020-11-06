@@ -6,7 +6,7 @@ module.exports = function Registering(pool) {
         var names = /C[AYJ]\s\d{3}-\d{3}|C[AYJ]\s\d{3}/gi
         var results = names.test(name)
         // var startsWith = name.substring(0, 2)
-        console.log(results);
+        // console.log(results);
         
         let reg;
        if(results === false){
@@ -53,14 +53,14 @@ async function regId(name){
             return all.rows;
         } else {
             const platenumbers = filter.substring(0, 2).trim();
-            console.log(platenumbers);
+            // console.log(platenumbers);
             
             const loc_id = await pool.query('select id from registration_town where starts_with = $1', [platenumbers]);
             const id = loc_id.rows[0].id
-            console.log(id);
+            // console.log(id);
             
             const filtering = await pool.query('select reg_num from registration_num where category_id = $1', [id]);
-            console.log(filtering);
+            // console.log(filtering);
             
             return filtering.rows
         }

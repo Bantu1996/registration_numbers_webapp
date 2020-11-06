@@ -20,7 +20,7 @@ module.exports = function routes(register){
             req.flash('error', regError)
 
           }
-             console.log(regError)
+            //  console.log(regError)
             res.render('index', {
                 reg: await register.gettingReg(),
                 // regError
@@ -29,7 +29,7 @@ module.exports = function routes(register){
     }
     const regFilter = async function (req, res) {
         var town = req.body.placesFilter
-        console.log(town)
+        // console.log(town)
         if (town === undefined) {
             req.flash('error', 'Please select town')
     
