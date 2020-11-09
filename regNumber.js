@@ -3,7 +3,7 @@ module.exports = function Registering(pool) {
 
     async function addReg(name) {
        var name = name.toUpperCase()
-        var names = /^C[AYJ]\s\d{3,10}$-\d{3,10}$|C[AYJ]\s\d{3,10}$/gi
+        var names = /^C[AYJ]\s\d{3,10}-\d{3,10}$|C[AYJ]\s\d{3,10}$/gi
         var results = names.test(name)
         // var startsWith = name.substring(0, 2)
         // console.log(results);
