@@ -61,8 +61,18 @@ describe('Registration', function () {
     await registing.addReg("CY 7654")
     await registing.addReg("CJ 8765")
     const regTown = await registing.showFilter("All");
-    const regTowns = regTown.length
-    assert.equal(3, regTowns)
+    const regTowns = regTown
+    assert.deepEqual([
+      {
+        reg_num: 'CA 1234'
+      },
+      {
+        reg_num: 'CY 7654'
+      },
+      {
+        reg_num: 'CJ 8765'
+      }
+    ], regTowns)
 
   });
 
@@ -75,8 +85,18 @@ describe('Registration', function () {
   await registing.addReg("CY 7654")
 
    const regTown = await registing.showFilter("CA");
-   const regTowns = regTown.length
-   assert.deepEqual(3 , regTowns);
+   const regTowns = regTown
+   assert.deepEqual([
+    {
+      reg_num: 'CA 1234'
+    },
+    {
+      reg_num: 'CA 7654'
+    },
+    {
+      reg_num: 'CA 8765'
+    }
+  ], regTowns);
 
   });
 
@@ -89,8 +109,18 @@ describe('Registration', function () {
     await registing.addReg("CA 8765")
     
     const regTown = await registing.showFilter("CY");
-    const regTowns = regTown.length
-    assert.equal(3, regTowns);
+    const regTowns = regTown
+    assert.deepEqual([
+      {
+        reg_num: 'CY 1234'
+      },
+      {
+        reg_num: 'CY 7654'
+      },
+      {
+        reg_num: 'CY 8765'
+      }
+    ], regTowns);
 
   });
 
@@ -102,8 +132,15 @@ describe('Registration', function () {
     await registing.addReg("CA 8765")
     
     const regTown = await registing.showFilter("CJ");
-    const regTowns = regTown.length
-    assert.equal(2, regTowns);
+    const regTowns = regTown
+    assert.deepEqual([
+      {
+        reg_num: 'CJ 1234'
+      },
+      {
+        reg_num: 'CJ 7654'
+      }
+    ], regTowns);
 
   });
 

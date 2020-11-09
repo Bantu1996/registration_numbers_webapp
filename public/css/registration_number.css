@@ -39,6 +39,10 @@ body {
 	border-radius: 15px;
 	
 }
+p{
+	opacity: 0.5;
+	margin: auto;
+}
 .bones{
 	float: right;
 	display: flex;
